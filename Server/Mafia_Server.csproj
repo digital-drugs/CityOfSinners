@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D09652D8-CD5A-459C-A870-18CA9E0F88AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mafia_Server</RootNamespace>
+    <AssemblyName>Mafia_Server</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Photon_4\deploy\Mafia_Server\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BEPUphysics">
+      <HintPath>lib\BEPUphysics.dll</HintPath>
+    </Reference>
+    <Reference Include="BEPUutilities">
+      <HintPath>lib\BEPUutilities.dll</HintPath>
+    </Reference>
+    <Reference Include="ExitGames.Logging.Log4Net">
+      <HintPath>lib\ExitGames.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ExitGamesLibs">
+      <HintPath>lib\ExitGamesLibs.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon.SocketServer">
+      <HintPath>lib\Photon.SocketServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3DotNet">
+      <HintPath>lib\Photon3DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonChatApi">
+      <HintPath>lib\PhotonChatApi.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonHostRuntimeInterfaces">
+      <HintPath>lib\PhotonHostRuntimeInterfaces.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PhotonLoadbalancingApi">
+      <HintPath>lib\PhotonLoadbalancingApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Share, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Client\Assets\Plugins\Share\Share.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\System.Text.Encodings.Web.5.0.1\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="websocket-sharp">
+      <HintPath>..\..\..\Unity_Projects\newDragonQuestWEB\Assets\Plugins\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Yandex.Checkout.V3, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\U Money\Yandex.Checkout.V3\bin\Debug\net40\Yandex.Checkout.V3.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuctionSlot.cs" />
+    <Compile Include="Auction\RoleAuction.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="DBManager.cs" />
+    <Compile Include="DB\DBExtra.cs" />
+    <Compile Include="Extras\DelayedExtraHandler.cs" />
+    <Compile Include="Extras\EventExtraHandler.cs" />
+    <Compile Include="Extras\Extra.cs" />
+    <Compile Include="Extras\ExtraHandler.cs" />
+    <Compile Include="Extras\ExtraHelper.cs" />
+    <Compile Include="Extras\ExtrasManager.cs" />
+    <Compile Include="GifConverter.cs" />
+    <Compile Include="Interfaces\IExtraHandler.cs" />
+    <Compile Include="ManagerDuels.cs" />
+    <Compile Include="ManagerEvent.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ManagerReitings.cs" />
+    <Compile Include="ManagerUser.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="Options\DBOptions.cs" />
+    <Compile Include="Options\GameRoomOptions.cs" />
+    <Compile Include="Player\BasePlayer.cs" />
+    <Compile Include="Player\Bot.cs" />
+    <Compile Include="Player\Player.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\Alien.cs" />
+    <Compile Include="Roles\Astronaut.cs" />
+    <Compile Include="Roles\BadClown.cs" />
+    <Compile Include="Roles\Citizen.cs" />
+    <Compile Include="Roles\Doctor.cs" />
+    <Compile Include="Roles\Garry.cs" />
+    <Compile Include="Roles\GoodClown.cs" />
+    <Compile Include="Roles\Guerilla.cs" />
+    <Compile Include="Roles\Jane.cs" />
+    <Compile Include="Roles\Loki.cs" />
+    <Compile Include="Roles\Mafia.cs" />
+    <Compile Include="Roles\MafiaBoss.cs" />
+    <Compile Include="Roles\Maniac.cs" />
+    <Compile Include="Roles\Role.cs" />
+    <Compile Include="Roles\RoleEffects.cs" />
+    <Compile Include="Roles\RoleHandler.cs" />
+    <Compile Include="Roles\RoleHelper.cs" />
+    <Compile Include="Roles\Saint.cs" />
+    <Compile Include="Roles\Scientist.cs" />
+    <Compile Include="Roles\Sinner.cs" />
+    <Compile Include="Room\RoomBots.cs" />
+    <Compile Include="Room\RoomEndGame.cs" />
+    <Compile Include="Room\RoomJudging.cs" />
+    <Compile Include="Room\RoomNightActionMessages.cs" />
+    <Compile Include="Room\RoomPhases.cs" />
+    <Compile Include="Room\RoomStartGame.cs" />
+    <Compile Include="Room\Visits\CommissarVisit.cs" />
+    <Compile Include="Room\Visits\DoctorVisit.cs" />
+    <Compile Include="Room\Visits\GuerillaVisit.cs" />
+    <Compile Include="Room\Visits\MafiaBossVisit.cs" />
+    <Compile Include="Room\Visits\MafiaVisit.cs" />
+    <Compile Include="Room\Visits\ManiacVisit.cs" />
+    <Compile Include="Room\Visits\RoleVisit.cs" />
+    <Compile Include="Room\Visits\SaintVisit.cs" />
+    <Compile Include="Room\Visits\SinnerVisit.cs" />
+    <Compile Include="Room\Visits\WerewolfVisit.cs" />
+    <Compile Include="Room\Visits\WitnessVisit.cs" />
+    <Compile Include="Skills\Skill.cs" />
+    <Compile Include="Roles\Werewolf.cs" />
+    <Compile Include="Roles\Witness.cs" />
+    <Compile Include="Roles\Сommissar.cs" />
+    <Compile Include="Room\Room.cs" />
+    <Compile Include="Room\RoomChat.cs" />
+    <Compile Include="Room\RoomConfig.cs" />
+    <Compile Include="Room\RoomHelper.cs" />
+    <Compile Include="Room\RoomLogic.cs" />
+    <Compile Include="Room\RoomRoles.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="Skills\SkillHandler.cs" />
+    <Compile Include="Skills\SkillHelper.cs" />
+    <Compile Include="Skills\SkillManager.cs" />
+    <Compile Include="Teams\Group.cs" />
+    <Compile Include="Teams\Team.cs" />
+    <Compile Include="UMoney.cs" />
+    <Compile Include="Vote.cs" />
+    <Compile Include="WebRequest.cs" />
+    <Compile Include="ManagerRooms.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AbstractComponents\" />
+    <Folder Include="Achivements\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="ConcreteClasses\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net40;net45</TargetFrameworks>
+    <Version>1.6.1</Version>
+    <Authors>morpher;ili</Authors>
+    <Title>YooMoney/YooKassa API wrapper</Title>
+    <Description>This library simplifies integration with YooMoney/YooKassa (formerly Yandex.Money / Yandex.Checkout).
+        YooMoney is a payment gateway owned by Sberbank, Russia.
+        The libary offers both sync and async APIs and supports a wide range of .NET versions from .NET Framework 4.0 to .NET Core and .NET 5.
+    </Description>
+    <Copyright>Copyright 2018-2021 morpher.ru</Copyright>
+    <PackageTags>YooMoney;YooKassa;Yandex;money;checkout;payments;REST;RESTful;API;SDK;integration</PackageTags>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <RepositoryUrl>https://github.com/morpher-ru/Yandex.Checkout.V3</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/morpher-ru/Yandex.Checkout.V3</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReleaseNotes>Повышение версии Newtonsoft.Json для исключения уязвимости.
+    </PackageReleaseNotes>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Yandex.Checkout.V3.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>9</LangVersion>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+    
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Net.Http" />
+    <Compile Remove="AsyncClient.Enumerable.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+    <Compile Remove="AsyncClient.cs" />
+    <Compile Remove="AsyncClient.Enumerable.cs" />
+    <Compile Remove="ClientExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+  </ItemGroup>
+
+</Project>

@@ -313,3 +313,5 @@ upm-ci~/
 test-results/
 .download
 .bin
+
+/Server/packages/

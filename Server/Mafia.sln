@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{079D398E-4AFC-CD7E-7881-F923D075EBD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafia_Server", "..\..\DHF\VK_Server\Server\Mafia_Server.csproj", "{D09652D8-CD5A-459C-A870-18CA9E0F88AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafia_Server", "Mafia_Server.csproj", "{D09652D8-CD5A-459C-A870-18CA9E0F88AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share", "..\..\DHF\VK_Server\Share\Share.csproj", "{0331B4B2-D8EF-4EFD-8AA2-82B8F705838D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Share", "..\Share\Share.csproj", "{0331B4B2-D8EF-4EFD-8AA2-82B8F705838D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yandex.Checkout.V3", "..\U Money\Yandex.Checkout.V3\Yandex.Checkout.V3.csproj", "{6DDF7762-427F-4B23-AF04-8B78FE02DF45}"
 EndProject

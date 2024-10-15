@@ -54,8 +54,8 @@ var config = {
   #endif
   streamingAssetsUrl: "StreamingAssets",
   companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
-productName: { { { JSON.stringify(PRODUCT_NAME) } } },
-productVersion: { { { JSON.stringify(PRODUCT_VERSION) } } },
+productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
 showBanner: unityShowBanner,
 };
 
@@ -91,6 +91,7 @@ script.onload = () => {
     alert(message);
   });
 };
+startVKAuth();
 document.body.appendChild(script);
 
 function startVKAuth() {
@@ -98,9 +99,8 @@ function startVKAuth() {
     const VKID = window.VKIDSDK;
     VKID.Config.init({
       app: 52308537, // Замените на ваш ID приложения
-      redirectUrl: 'https://cityofsinners.ru',
-      state: 'jhkerfkjKJfduif_fdsjkwee-2j32krvilasfnHHdfb3i39945hkm_ymnc-23jn1_dj__nj3i1n63bfsjJWI77Byn3',
-      mode: VKID.ConfigAuthMode.InNewWindow
+      redirect_url: 'https://cityofsinners.ru',
+      state: 'jhkerfkjKJfduif_fdsjkwee-2j32krvilasfnHHdfb3i39945hkm_ymnc-23jn1_dj__nj3i1n63bfsjJWI77Byn3'
     });
 
     const floatingOneTap = new VKID.FloatingOneTap();

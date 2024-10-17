@@ -1,9 +1,5 @@
 var VKJSPlugin = 
 {
-	
-
-
-
 	Handler: function(method, data, callback) 
 	{
 		var Init = function(SDKVersion) 
@@ -97,8 +93,8 @@ var VKJSPlugin =
 		var VKSDKVersion = 0;
 		var VKEventExternalCallbacks = []; // storage for C# callback functions on VK events
 		
-		method = Pointer_stringify(method);
-		data = Pointer_stringify(data);
+		method = UTF8ToString(method);
+		data = UTF8ToString(data);
 		
 		var functionNumber = AVAILABLE_FUNCTIONS.indexOf(method); 
 		if (~functionNumber) {

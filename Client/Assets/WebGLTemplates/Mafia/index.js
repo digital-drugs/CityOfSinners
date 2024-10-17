@@ -91,46 +91,4 @@ script.onload = () => {
     alert(message);
   });
 };
-startVKAuth();
 document.body.appendChild(script);
-
-function startVKAuth() {
-  if (typeof VKIDSDK !== 'undefined') {
-    const VKID = window.VKIDSDK;
-    VKID.Config.init({
-      app: 52308537, // Замените на ваш ID приложения
-      redirect_url: 'https://cityofsinners.ru',
-      state: 'jhkerfkjKJfduif_fdsjkwee-2j32krvilasfnHHdfb3i39945hkm_ymnc-23jn1_dj__nj3i1n63bfsjJWI77Byn3'
-    });
-
-    const floatingOneTap = new VKID.FloatingOneTap();
-    floatingOneTap.render({
-      appName: 'City Of Game',
-      onSuccess: function () {
-        console.log('Аутентификация прошла успешно');
-      },
-      onFailure: function (error) {
-        console.error('Ошибка аутентификации:', error);
-      }
-    });
-
-    renderOneTapButton(VKID);
-  } else {
-    console.error('VKIDSDK не загружен');
-  }
-}
-
-function renderOneTapButton(VKID) {
-  // Создание экземпляра кнопки.
-  const oneTap = new VKID.OneTap();
-
-  // Получение контейнера из разметки.
-  const container = document.getElementById('VkIdSdkOneTap');
-  
-  // Проверка наличия кнопки в разметке.
-  if (container) {
-    // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
-    oneTap.render({ container: container, scheme: VKID.Scheme.LIGHT, lang: VKID.Languages.RUS })
-        .on(VKID.WidgetEvents.ERROR, console.log); // handleError — какой-либо обработчик ошибки.
-  }
-}

@@ -18,7 +18,49 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="VkIdSdkOneTap"></div>
+      <div>
+        <script src="https://unpkg.com/@vkid/sdk@2.3.3/dist-sdk/umd/index.js"></script> 
+        <script type="text/javascript"> 
+          if ('VKIDSDK' in window) { 
+            const VKID = window.VKIDSDK; 
+      
+            VKID.Config.init({ 
+              app: 52387924, 
+              redirectUrl: 'https://cityofsinners.ru/index.html', 
+              responseMode: VKID.ConfigResponseMode.Callback, 
+              source: VKID.ConfigSource.LOWCODE, 
+            }); 
+      
+            const oneTap = new VKID.OneTap(); 
+      
+            oneTap.render({ 
+              container: document.currentScript.parentElement, 
+              showAlternativeLogin: true, 
+              oauthList: [ 
+                'ok_ru', 
+                'mail_ru' 
+              ] 
+            }) 
+            .on(VKID.WidgetEvents.ERROR, vkidOnError) 
+            .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) { 
+              const code = payload.code; 
+              const deviceId = payload.device_id; 
+      
+              VKID.Auth.exchangeCode(code, deviceId) 
+                .then(vkidOnSuccess) 
+                .catch(vkidOnError); 
+            }); 
+          } 
+          
+          function vkidOnSuccess(data) { 
+            console.log(`LogIn Success ${data}`);
+          }
+        
+          function vkidOnError(error) { 
+            console.log(`LogIn error: ${error}`);
+          } 
+        </script> 
+      </div>
       <div id="unity-warning"> </div>
     </div>
     <script src="index.js"></script>

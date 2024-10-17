@@ -72,6 +72,8 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
   meta.name = 'viewport';
   meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
   document.getElementsByTagName('head')[0].appendChild(meta);
+  container.className = "unity-mobile";
+  canvas.className = "unity-mobile";
 }
 
 #if BACKGROUND_FILENAME

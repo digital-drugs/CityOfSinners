@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
+using Utils;
 
 public class VKAuthorization : MonoBehaviour
 {
@@ -41,11 +42,13 @@ public class VKAuthorization : MonoBehaviour
     {
         PhotonManager.Inst.RequestLogin(TMP_login.text);
         return;
-
 #if UNITY_EDITOR
         PhotonManager.Inst.RequestLogin(TMP_login.text);
 #else
-        VKLogin(gameObject.name, "VKAuthResult");
+        //TODO: get userInfo
+        //var userInfo = JsUtils.GetUserInfo();
+        //TODO: get id from userInfo
+        //PhotonManager.Inst.RequestLogin(id);
 #endif
     }
 

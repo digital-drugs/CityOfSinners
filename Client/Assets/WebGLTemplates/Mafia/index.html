@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
-    <script src="https://unpkg.com/@vkid/sdk@2.3.3/dist-sdk/umd/index.js"></script>
   </head>
   <body>
     <div id="unity-container">
@@ -21,35 +20,41 @@
       <div>
         <script src="https://unpkg.com/@vkid/sdk@2.3.3/dist-sdk/umd/index.js"></script> 
         <script type="text/javascript"> 
+        const userInfo = "";
           if ('VKIDSDK' in window) { 
             const VKID = window.VKIDSDK; 
       
-            VKID.Config.init({ 
-              app: 52387924, 
-              redirectUrl: 'https://cityofsinners.ru/index.html', 
-              responseMode: VKID.ConfigResponseMode.Callback, 
-              source: VKID.ConfigSource.LOWCODE, 
-            }); 
-      
-            const oneTap = new VKID.OneTap(); 
-      
-            oneTap.render({ 
-              container: document.currentScript.parentElement, 
-              showAlternativeLogin: true, 
-              oauthList: [ 
-                'ok_ru', 
-                'mail_ru' 
-              ] 
-            }) 
-            .on(VKID.WidgetEvents.ERROR, vkidOnError) 
-            .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) { 
-              const code = payload.code; 
-              const deviceId = payload.device_id; 
-      
-              VKID.Auth.exchangeCode(code, deviceId) 
-                .then(vkidOnSuccess) 
-                .catch(vkidOnError); 
-            }); 
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const code = urlParams.get('code');
+            const deviceId = urlParams.get('device_id');
+
+            if (code && deviceId) {
+              let accessToken = VKID.Auth.exchangeCode(code, deviceId);
+              let info = VKID.Auth.userInfo(accessToken);
+              userInfo = JSON.stringify(info);
+            }
+            else {
+              VKID.Config.init({ 
+                app: 52387924, 
+                redirectUrl: 'https://cityofsinners.ru', 
+                source: VKID.ConfigSource.LOWCODE, 
+                action: { 
+                  name: `qr_auth`, 
+              }
+              });
+
+              const floatingOneTap = new VKID.FloatingOneTap();
+              floatingOneTap.render({
+                appName: 'City Of Game',
+                onSuccess: function () {
+                  console.log('Authentification success');
+                },
+                onFailure: function (error) {
+                  console.error('Authentification error:', error);
+                }
+              });
+            }
           } 
           
           function vkidOnSuccess(data) { 

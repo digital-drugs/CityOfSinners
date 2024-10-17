@@ -47,7 +47,7 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
         Setup();
     }
 
-    //при старте приложения
+    //РїСЂРё СЃС‚Р°СЂС‚Рµ РїСЂРёР»РѕР¶РµРЅРёСЏ
     public string Setup()
     {
         if (Inst == null)
@@ -78,14 +78,14 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
     #region CONNECT_TO_SERVER 
 
     /// <summary>
-    /// попытка одключения
+    /// РїРѕРїС‹С‚РєР° РѕРґРєР»СЋС‡РµРЅРёСЏ
     /// </summary>
     /// <param name="Next_Connect_Time"></param>
     /// <returns></returns>
     IEnumerator Try_Connect(float Next_Connect_Time)
     {
         Debug.Log("Try_Connect");
-        //включаем индикатор сервера
+        //РІРєР»СЋС‡Р°РµРј РёРЅРґРёРєР°С‚РѕСЂ СЃРµСЂРІРµСЂР°
         yield return new WaitForSeconds(Next_Connect_Time);
         Connect();
     }
@@ -181,7 +181,7 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
         //UpdatePhotonService().Dispose();
 
         Debug.Log($"disconnect peer");
-        //при закрытии клиент рвем соед с сервером
+        //РїСЂРё Р·Р°РєСЂС‹С‚РёРё РєР»РёРµРЅС‚ СЂРІРµРј СЃРѕРµРґ СЃ СЃРµСЂРІРµСЂРѕРј
         if (peer != null)
         {
             peer.Disconnect();
@@ -190,10 +190,10 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
 
     public void DebugReturn(DebugLevel level, string message)
     {
-        //нужно для IPhotonPeerListener
+        //РЅСѓР¶РЅРѕ РґР»СЏ IPhotonPeerListener
     }
 
-    #region Статус соединения с сервером
+    #region РЎС‚Р°С‚СѓСЃ СЃРѕРµРґРёРЅРµРЅРёСЏ СЃ СЃРµСЂРІРµСЂРѕРј
 
     [SerializeField] private TextMeshProUGUI serverState;
     [SerializeField] private TextMeshProUGUI serverAnswerTime;
@@ -236,7 +236,7 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
 
         switch (statusCode)
         {
-            //при успешном подключении к серверу
+            //РїСЂРё СѓСЃРїРµС€РЅРѕРј РїРѕРґРєР»СЋС‡РµРЅРёРё Рє СЃРµСЂРІРµСЂСѓ
             case StatusCode.Connect:
                 {
                     AuthorizationUI.ShowAuthorization();
@@ -290,7 +290,7 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
 
     #endregion
 
-    #region Сообщения от сервера
+    #region РЎРѕРѕР±С‰РµРЅРёСЏ РѕС‚ СЃРµСЂРІРµСЂР°
 
     public void OnOperationResponse(OperationResponse operationResponse)
     {
@@ -716,9 +716,9 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
 
     #endregion
 
-    #region ивенты от сервера
+    #region РёРІРµРЅС‚С‹ РѕС‚ СЃРµСЂРІРµСЂР°
 
-    //обработка событий с сервера
+    //РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёР№ СЃ СЃРµСЂРІРµСЂР°
     public void OnEvent(EventData eventData)
     {
         var ServerData = eventData.Parameters;
@@ -942,7 +942,7 @@ public class PhotonManager : MonoBehaviour, IPhotonPeerListener
     public SendOptions sendOptions { get; private set; }
 
     /// <summary>
-    /// запрос на авторизацию
+    /// Р·Р°РїСЂРѕСЃ РЅР° Р°РІС‚РѕСЂРёР·Р°С†РёСЋ
     /// </summary>
     /// <param name="userLogin"></param>
     /// <param name="userPassword"></param>
